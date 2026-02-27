@@ -38,7 +38,7 @@ void start_receiver() {
     // 1. Receive Metadata
     FileMetadata meta;
     recv(client_sock, (char*)&meta, sizeof(FileMetadata), 0);
-    printf("[+] Receiving: %s (%llu GB)\n", meta.filename, meta.filesize / (1024*1024*1024));
+    printf("[+] Receiving: %s (%lu GB)\n", meta.filename, meta.filesize / (1024*1024*1024));
 
     // 2. Receive File Data in Chunks
     FILE *fp = fopen("received_output.dat", "wb");

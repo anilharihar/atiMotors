@@ -4,15 +4,15 @@ CC = gcc
 CFLAGS = -Wall -Wextra -O2 -D_FILE_OFFSET_BITS=64
 
 # Targets
-all: server receiver
+all: server sender
 
 # Link the server executable
 server: server.o
 	$(CC) $(CFLAGS) -o server server.o
 
-# Link the receiver executable
-receiver: receiver.o
-	$(CC) $(CFLAGS) -o receiver receiver.o
+# Link the sender executable
+sender: sender.o
+	$(CC) $(CFLAGS) -o sender sender.o
 
 # Compile source files into object files
 %.o: %.c transfer.h
@@ -20,6 +20,6 @@ receiver: receiver.o
 
 # Remove compiled binaries and object files
 clean:
-	rm -f server receiver *.o received_output.dat
+	rm -f server sender *.o received_output.dat
 
 .PHONY: all clean
